@@ -61,11 +61,10 @@ function game(){
 
     for (let i = 0; i < 5; i++){
         // Prompt for each round
-        let playerSelection;
         let validEntry = false;
+
         while (!validEntry){
             playerSelection = (prompt("Play Rock, Paper, or Scissors")).toLowerCase();
-
             if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors"){
                 validEntry = true;
             }
