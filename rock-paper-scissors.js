@@ -1,6 +1,7 @@
 function getComputerChoice() {
     // Create array of Rock, Paper, Scissors
     const choices = ["rock", "paper", "scissors"];
+
     // Randomly index one of these
     computerSelection = choices[Math.floor(Math.random()*3)];
     return computerSelection;
@@ -44,19 +45,41 @@ function playRound (playerSelection, computerSelection){
         msg = "Tie, you selected identically";
         winner = 'tie';
     }
-    console.log(msg)
-    return {'message': msg, 'winner': winner}
+    
+    return {'message': msg, 'winner': winner};
 
 }
 
 function game(){
     // play 5 rounds and keep score
+    console.log("Let\'s play 5 rounds of rock paper scissors!");
+    
+    // Initialize Scores
+    let playerScore = 0;
+    let computerScore = 0;
+    let tie = 0;
 
     for (let i = 0; i < 5; i++){
+        // Prompt for each round
+        let playerSelection = (prompt("Play Rock, Paper, or Scissors")).toLowerCase();
+        let computerSelection = getComputerChoice();
+        let result = playRound(playerSelection,computerSelection);
         
+        // Add to Score Totals
+        if (result.winner === 'player'){
+            playerScore++;
+        }
+        else if (result.winner === 'computer'){
+            computerScore++;
+        }
+        else {
+            tie++;
+        }
+
+        // Write out round result and updated scores
+        console.log(result.message)
+        console.log(`-----SCORE-----\n Player: ${playerScore}\n Computer: ${computerScore}\n Ties: ${tie}`);
     }
 }
 
-const playerSelection= 'rock';
-const computer=getComputerChoice();
-playRound(playerSelection,computer);
+game()
