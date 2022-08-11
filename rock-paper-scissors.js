@@ -61,7 +61,18 @@ function game(){
 
     for (let i = 0; i < 5; i++){
         // Prompt for each round
-        let playerSelection = (prompt("Play Rock, Paper, or Scissors")).toLowerCase();
+        let playerSelection;
+        let validEntry = false;
+        while (!validEntry){
+            playerSelection = (prompt("Play Rock, Paper, or Scissors")).toLowerCase();
+
+            if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors"){
+                validEntry = true;
+            }
+            else{
+                console.log('Invalid entry, try again')
+            }
+        }
         let computerSelection = getComputerChoice();
         let result = playRound(playerSelection,computerSelection);
         
@@ -78,7 +89,7 @@ function game(){
 
         // Write out round result and updated scores
         console.log(result.message)
-        console.log(`-----SCORE-----\n Player: ${playerScore}\n Computer: ${computerScore}\n Ties: ${tie}`);
+        console.log(`-----SCORE-----\n Player: ${playerScore}\n Computer: ${computerScore}\n Ties: ${tie}\n---------------`);
     }
 }
 
