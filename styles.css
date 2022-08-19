@@ -1,0 +1,33 @@
+html,body{
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.scoreboard{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.scoreboard div{
+    text-align: center;
+}
+
+#button-container{
+    display:flex;
+    justify-content: space-around;
+}
+
+#button-container input{
+    flex:1 1 auto;
+    width: 20%;
+}
+
+

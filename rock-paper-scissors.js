@@ -140,7 +140,7 @@ function checkWinner(){
     }
 }
 
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('input');
 
 buttons.forEach((button) => {
     button.addEventListener('click', (e)=> {
