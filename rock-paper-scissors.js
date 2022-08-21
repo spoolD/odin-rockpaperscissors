@@ -133,10 +133,14 @@ function checkWinner(){
 
     // If winner found, declare winner and deactivate buttons
     if (clearBoard){
-        document.getElementById('button-container').style.display = 'none'
+        document.getElementById('rock').style.display = 'none';
+        document.getElementById('paper').style.display = 'none';
+        document.getElementById('scissors').style.display = 'none';
+        const butCont = document.querySelector('#button-container');
         const endGame = document.createElement('div');
+        endGame.classList.add('end');
         endGame.textContent = `${winner} reached 5 points! They are the winner!`;
-        document.body.appendChild(endGame)
+        butCont.appendChild(endGame)
     }
 }
 
